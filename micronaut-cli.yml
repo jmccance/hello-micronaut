@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: hello.world
+---
+testFramework: spek
+sourceLanguage: kotlin
