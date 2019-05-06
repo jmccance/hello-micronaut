@@ -1,4 +1,4 @@
-package hello.world
+package hello.world.web
 
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
