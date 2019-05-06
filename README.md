@@ -14,22 +14,18 @@ docker-compose up -d # (Optional) Start dependencies
 Features
 --------
 
-Some miscellaneous things I was looking for that worked out-of-the-box
-as expected:
+Some miscellaneous things I was looking for that worked out-of-the-box as expected:
 
 - Jackson serialization support for Kotlin data classes
 - Normal Logback logging. (Nothing fancy here, no structured logging.)
-- 
+- Returning a `null` from a controller returns a 404, as I would hope
+- DB support seems to mostly be around providing configuration. After that it's BYO data library, which I'm fine with. Trying out Jdbi integration 
 
 ### Jaeger Tracing
 
-Jaeger Tracing is enabled by default. I've provided
-docker-compose file to start up a local Jaeger instance, with the UI
-available at http://localhost:16686/. Note you'll need to hit an
-endpoint before anything will show up in the UI.
+Jaeger Tracing is enabled by default. I've provided docker-compose file to start up a local Jaeger instance, with the UI available at http://localhost:16686/. Note you'll need to hit an endpoint before anything will show up in the UI.
 
-Enabling this required turning it on in the configuration and adding
-these dependencies:
+Enabling this required turning it on in the configuration and adding these dependencies:
     
 ```kotlin
 compile("io.micronaut", "micronaut-tracing")
