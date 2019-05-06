@@ -35,7 +35,7 @@ dependencies {
     compile("io.micronaut", "micronaut-management")
     compile("io.micronaut", "micronaut-runtime")
     compile("io.micronaut", "micronaut-tracing")
-    compile("io.micronaut.configuration", "micronaut-jdbc-dbcp")
+    compile("io.micronaut.configuration", "micronaut-liquibase")
     compile("io.micronaut.configuration", "micronaut-micrometer-core")
     compile("io.micronaut.configuration", "micronaut-micrometer-registry-prometheus")
     compile("javax.annotation", "javax.annotation-api")
@@ -45,8 +45,9 @@ dependencies {
     compile("org.jetbrains.kotlin", "kotlin-stdlib-jdk8", "${extra["kotlinVersion"]}")
     compile("org.postgresql", "postgresql", "42.2.5")
 
-    runtime("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.8")
     runtime("ch.qos.logback", "logback-classic", "1.2.3")
+    runtime("com.fasterxml.jackson.module", "jackson-module-kotlin", "2.9.8")
+    runtime("io.micronaut.configuration", "micronaut-jdbc-hikari")
 
     kaptTest("io.micronaut", "micronaut-inject-java")
 

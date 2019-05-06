@@ -1,25 +1,21 @@
 package hello.world.services
 
 import hello.world.model.Widget
+import hello.world.repositories.WidgetRepository
 import java.util.*
 import javax.inject.Singleton
 import kotlin.random.Random
 
 @Singleton
-class WidgetService {
-    private val widgets: MutableMap<String, Widget> = mutableMapOf(
-        "123" to Widget("123", "Sprocket"),
-        "abc" to Widget("abc", "Flange")
-    )
-
+class WidgetService(private val widgets: WidgetRepository) {
     fun create(name: String): Widget {
         val id = UUID.randomUUID().toString()
         val widget = Widget(id, name)
 
-        widgets[id] = widget
+        widgets.insert(widget)
 
         return widget
     }
 
-    fun findById(id: String): Widget? = widgets[id]
+    fun findById(id: String): Widget? = widgets.findById(id)
 }

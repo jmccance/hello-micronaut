@@ -10,16 +10,41 @@ import javax.sql.DataSource
 @Singleton
 class WidgetRepository(dataSource: DataSource) {
 
-    val jdbi = with(Jdbi.create(dataSource)) {
+    // FIXME Inject jdbi instead of creating it ourselves
+    private val jdbi = with(Jdbi.create(dataSource)) {
         installPlugin(KotlinPlugin())
     }
 
     fun findById(id: String): Widget? {
         return jdbi.withHandle<Widget?, Nothing> { h ->
             h.createQuery("select * from widget where id = :id")
+                .bind("id", id)
                 .mapTo<Widget>()
                 .findFirst()
                 .orElse(null)
+        }
+    }
+
+    fun insert(widget: Widget) {
+        jdbi.withHandle<Widget, Nothing> { h ->
+            h.createUpdate(
+                """
+                insert into widget
+                (
+                    id,
+                    name
+                )
+                values
+                (
+                    :id,
+                    :name
+                )
+                """.trimIndent()
+            )
+                .bindBean(widget)
+                .execute()
+
+            widget
         }
     }
 }

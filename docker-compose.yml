@@ -10,6 +10,7 @@ services:
       - "16686:16686"
       - "14268:14268"
       - "9411:9411"
+
   postgres:
     image: "postgres:11.2"
     ports:

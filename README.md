@@ -33,3 +33,7 @@ compile("io.jaegertracing", "jaeger-thrift", "0.31.0")
 ```
 
 Traces are broken down by matched template (e.g., `GET /foo/{var}`.)
+
+### Data Access
+
+- Configuring using the recommended DBCP pool failed out because of a missing Spring class. Switched to Hikari and that works fine.

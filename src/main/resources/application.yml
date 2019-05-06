@@ -1,7 +1,18 @@
+datasources:
+  default:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/hello
+    username: postgres
+
 endpoints:
   all:
     # For local development
     sensitive: false
+
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.xml'
 
 micronaut:
   application:
