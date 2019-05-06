@@ -8,12 +8,7 @@ import javax.inject.Singleton
 import javax.sql.DataSource
 
 @Singleton
-class WidgetRepository(dataSource: DataSource) {
-
-    // FIXME Inject jdbi instead of creating it ourselves
-    private val jdbi = with(Jdbi.create(dataSource)) {
-        installPlugin(KotlinPlugin())
-    }
+class WidgetRepository(private val jdbi: Jdbi) {
 
     fun findById(id: String): Widget? {
         return jdbi.withHandle<Widget?, Nothing> { h ->
