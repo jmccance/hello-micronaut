@@ -7,7 +7,7 @@ Quickstart
 ----------
 
 ```
-docker-compose up -d # (Optional) Start dependencies
+docker-compose up -d # Start dependencies, including the database
 ./gradlew run
 ```
 
@@ -26,7 +26,7 @@ Some miscellaneous things I was looking for that worked out-of-the-box as expect
 Jaeger Tracing is enabled by default. I've provided docker-compose file to start up a local Jaeger instance, with the UI available at http://localhost:16686/. Note you'll need to hit an endpoint before anything will show up in the UI.
 
 Enabling this required turning it on in the configuration and adding these dependencies:
-    
+
 ```kotlin
 compile("io.micronaut", "micronaut-tracing")
 compile("io.jaegertracing", "jaeger-thrift", "0.31.0")
