@@ -11,7 +11,7 @@ plugins {
 }
 
 
-group = "hello.world"
+group = "hello"
 version = "0.1"
 
 val developmentOnly by configurations.creating
@@ -62,7 +62,7 @@ allOpen {
 }
 
 application {
-    mainClassName = "hello.world.Application"
+    mainClassName = "hello.Application"
 }
 
 tasks {

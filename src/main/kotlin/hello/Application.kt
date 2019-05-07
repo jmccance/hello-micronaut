@@ -1,4 +1,4 @@
-package hello.world
+package hello
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.runtime.Micronaut

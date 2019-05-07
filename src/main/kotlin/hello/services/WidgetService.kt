@@ -1,10 +1,9 @@
-package hello.world.services
+package hello.services
 
-import hello.world.model.Widget
-import hello.world.repositories.WidgetRepository
+import hello.model.Widget
+import hello.repositories.WidgetRepository
 import java.util.*
 import javax.inject.Singleton
-import kotlin.random.Random
 
 @Singleton
 class WidgetService(private val widgets: WidgetRepository) {

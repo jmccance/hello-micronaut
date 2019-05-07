@@ -1,7 +1,7 @@
-package hello.world.web
+package hello.web
 
-import hello.world.model.Widget
-import hello.world.services.WidgetService
+import hello.model.Widget
+import hello.services.WidgetService
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get

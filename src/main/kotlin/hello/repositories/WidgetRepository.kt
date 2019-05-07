@@ -1,11 +1,9 @@
-package hello.world.repositories
+package hello.repositories
 
-import hello.world.model.Widget
+import hello.model.Widget
 import org.jdbi.v3.core.Jdbi
-import org.jdbi.v3.core.kotlin.KotlinPlugin
 import org.jdbi.v3.core.kotlin.mapTo
 import javax.inject.Singleton
-import javax.sql.DataSource
 
 @Singleton
 class WidgetRepository(private val jdbi: Jdbi) {
