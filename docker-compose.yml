@@ -12,6 +12,6 @@ services:
       - "9411:9411"
 
   postgres:
-    image: "postgres:11.2"
+    build: ./postgres
     ports:
       - "5432:5432"

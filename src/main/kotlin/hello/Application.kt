@@ -2,6 +2,7 @@ package hello
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.runtime.Micronaut
+import io.opentracing.contrib.jdbi3.OpentracingJdbi3Plugin
 import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.core.kotlin.KotlinPlugin
 import javax.inject.Singleton
@@ -24,5 +25,6 @@ class ComponentFactory {
     fun jdbi(ds: DataSource): Jdbi =
         with(Jdbi.create(ds)) {
             installPlugin(KotlinPlugin())
+            installPlugin(OpentracingJdbi3Plugin())
         }
 }

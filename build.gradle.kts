@@ -14,7 +14,7 @@ plugins {
 group = "hello"
 version = "0.1"
 
-val developmentOnly by configurations.creating
+val developmentOnly: Configuration by configurations.creating
 
 repositories {
     mavenCentral()
@@ -38,6 +38,7 @@ dependencies {
     compile("io.micronaut.configuration", "micronaut-liquibase")
     compile("io.micronaut.configuration", "micronaut-micrometer-core")
     compile("io.micronaut.configuration", "micronaut-micrometer-registry-prometheus")
+    compile("io.opentracing.contrib", "opentracing-jdbi3", "0.6.0")
     compile("javax.annotation", "javax.annotation-api")
     compile("org.jdbi", "jdbi3-core")
     compile("org.jdbi", "jdbi3-kotlin")
@@ -66,8 +67,7 @@ application {
 }
 
 tasks {
-    // Parens required to prevent the compiler from resolving this to the `kotlin.run` extension
-    // method.
+    // Parens required to prevent the compiler from resolving this to the `kotlin.run` utility
     (run) {
         classpath += developmentOnly
         jvmArgs = listOf("-noverify", "-XX:TieredStopAtLevel=1", "-Dcom.sun.management.jmxremote")
