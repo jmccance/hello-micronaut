@@ -19,6 +19,9 @@ object Application {
     }
 }
 
+/**
+ * Configure any external beans required for the application.
+ */
 @Factory
 class ComponentFactory {
     @Singleton

@@ -6,7 +6,8 @@ datasources:
 
 endpoints:
   all:
-    # For local development
+    # Makes all the endpoints available without authentication. A terrible idea in production, but
+    # great when you're just exploring the framework locally.
     sensitive: false
 
 liquibase:
@@ -16,7 +17,7 @@ liquibase:
 
 micronaut:
   application:
-    name: hello-world
+    name: hello-micronaut
 
 tracing:
   jaeger:
