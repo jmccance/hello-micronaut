@@ -2,11 +2,8 @@ package hello.repositories
 
 import hello.model.Widget
 import hello.orNull
-import io.micrometer.core.annotation.Timed
 import io.micrometer.core.instrument.MeterRegistry
 import io.micrometer.core.instrument.Timer
-import io.micronaut.context.annotation.Bean
-import io.micronaut.tracing.annotation.NewSpan
 import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.core.kotlin.mapTo
 import org.jdbi.v3.core.kotlin.withHandleUnchecked
@@ -20,7 +17,6 @@ class WidgetRepository(private val jdbi: Jdbi, private val registry: MeterRegist
             .publishPercentileHistogram()
             .tag("query", query)
             .register(registry)
-
 
     fun findById(id: String): Widget? {
         // withHandleUnchecked is an extension method provided by jdbi3-kotlin to work around

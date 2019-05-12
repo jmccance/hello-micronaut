@@ -2,7 +2,6 @@ package hello.web
 
 import hello.model.Widget
 import hello.services.WidgetService
-import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post

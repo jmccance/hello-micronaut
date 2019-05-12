@@ -2,7 +2,7 @@ package hello.services
 
 import hello.model.Widget
 import hello.repositories.WidgetRepository
-import java.util.*
+import java.util.UUID
 import javax.inject.Singleton
 
 @Singleton

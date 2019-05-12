@@ -10,6 +10,7 @@ plugins {
     id("com.github.johnrengelman.shadow").version("4.0.2")
 }
 
+apply<KtLintPlugin>()
 
 group = "hello"
 version = "0.1"

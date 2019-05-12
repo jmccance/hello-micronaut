@@ -9,7 +9,7 @@ class HelloController {
     @Get(produces = [MediaType.TEXT_PLAIN])
     fun index(): String = "Greetings, meatbag"
 
-    @Get("/{value}", produces = [MediaType.APPLICATION_JSON])
+    @Get("/{value}")
     fun getValue(value: String) = Value(value)
 }
 
