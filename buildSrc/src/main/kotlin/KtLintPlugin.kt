@@ -3,7 +3,6 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.tasks.JavaExec
 import org.gradle.kotlin.dsl.*
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class KtLintPlugin : Plugin<Project> {
 
@@ -32,10 +31,14 @@ class KtLintPlugin : Plugin<Project> {
                     description = "Fix Kotlin code style deviations."
                     main = "com.pinterest.ktlint.Main"
                     classpath = ktlint
-                    args = listOf("-F", "src/**/*.kt")
+                    args = listOf("-F", "--experimental", "src/**/*.kt")
                 }
 
-                named("build") {
+                named("classes") {
+                    dependsOn("ktlintFormat")
+                }
+
+                named("testClasses") {
                     dependsOn("ktlintFormat")
                 }
             }

@@ -6,10 +6,10 @@ import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
 import io.micronaut.runtime.Micronaut
 import io.opentracing.contrib.jdbi3.OpentracingJdbi3Plugin
-import org.jdbi.v3.core.Jdbi
-import org.jdbi.v3.core.kotlin.KotlinPlugin
 import javax.inject.Singleton
 import javax.sql.DataSource
+import org.jdbi.v3.core.Jdbi
+import org.jdbi.v3.core.kotlin.KotlinPlugin
 
 object Application {
 
